@@ -8,6 +8,7 @@ using MvvmCross.Platform.Plugins;
 using MvvmCross.Plugins.Color;
 using MvvmCross.Plugins.Visibility;
 using System.Collections;
+using MvvmCross.Platform.Logging;
 
 namespace ValueConversion.UI.Touch
 {
@@ -33,6 +34,10 @@ namespace ValueConversion.UI.Touch
         {
             return new App();
         }
+
+        // Fix for upgrading to MvvmCross 5.4+ from https://stackoverflow.com/a/47052169/908677
+        protected override MvxLogProviderType GetDefaultLogProviderType()
+            => MvxLogProviderType.None;
     }
 
     // The UIApplicationDelegate for the application. This class is responsible for launching the
